@@ -30,21 +30,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/volume_seekbar"
-        tools:ignore="MissingConstraints" />
+        android:visibility="invisible" /> <!-- Inicialmente invisible -->
 
     <SeekBar
         android:id="@+id/volume_seekbar"
-        android:layout_width="379dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#FFFFFF"
         android:foregroundTint="#FFFFFF"
         android:max="100"
         android:progress="50"
         android:progressTint="#FFFFFF"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_tv" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_tv" /> <!-- Inicialmente invisible -->
 
     <Button
         android:id="@+id/buttonBorrar"
@@ -73,6 +76,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/volume_text"
         tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-

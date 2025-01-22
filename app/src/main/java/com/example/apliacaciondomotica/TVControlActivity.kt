@@ -38,6 +38,9 @@ class TvControlActivity : AppCompatActivity() {
         volumeSeekBar.progress = volumeLevel
         volumeText.text = "Volumen: $volumeLevel"
 
+        // Manejar la visibilidad del SeekBar y TextView de volumen según el estado de la TV
+        updateVolumeVisibility(isTvOn)
+
         botonActualizar.setOnClickListener {
             Toast.makeText(this, "Actualizando Firmware...", Toast.LENGTH_SHORT).show()
         }
@@ -47,6 +50,10 @@ class TvControlActivity : AppCompatActivity() {
             val editor = sharedPreferences.edit()
             editor.putBoolean("tvState", isChecked)
             editor.apply()
+
+            // Actualizar la visibilidad del SeekBar y el TextView de volumen
+            updateVolumeVisibility(isChecked)
+
             // Actualizar el TextView en MainActivity al cambiar el Switch
             updateMainActivityTextView(isChecked, volumeLevel)
         }
@@ -65,6 +72,16 @@ class TvControlActivity : AppCompatActivity() {
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+    }
+
+    private fun updateVolumeVisibility(isTvOn: Boolean) {
+        if (isTvOn) {
+            volumeText.visibility = TextView.VISIBLE
+            volumeSeekBar.visibility = SeekBar.VISIBLE
+        } else {
+            volumeText.visibility = TextView.INVISIBLE
+            volumeSeekBar.visibility = SeekBar.INVISIBLE
+        }
     }
 
     private fun updateMainActivityTextView(isTvOn: Boolean, volumeLevel: Int) {

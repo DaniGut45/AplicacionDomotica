@@ -133,6 +133,32 @@
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
+        <!-- Estado del termostato -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <Button
+                android:id="@+id/btn_Termostato"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#222222"
+                android:text="Termostato"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/termostato_Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:gravity="center_vertical"
+                android:text="Temperatura: 0ºC"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+
         <!-- Otros dispositivos (Luces, etc.) -->
     </LinearLayout>
 

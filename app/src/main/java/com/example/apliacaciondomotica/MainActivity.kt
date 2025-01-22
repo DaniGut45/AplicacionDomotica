@@ -11,7 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var blindsPercentage: TextView
-    private lateinit var lightStatus: TextView // Agregar la variable para el estado de las luces
+    private lateinit var lightStatus: TextView
+    private lateinit var volumeStatus: TextView // Añadir la variable para el estado del volumen
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +20,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val tvStatus = findViewById<TextView>(R.id.tv_status)
-        val volumeStatus = findViewById<TextView>(R.id.volume_status)
+        volumeStatus = findViewById<TextView>(R.id.volume_status) // Inicializar la variable
         blindsPercentage = findViewById<TextView>(R.id.blinds_percentage)
-        lightStatus = findViewById<TextView>(R.id.light_status) // Inicializar la variable
+        lightStatus = findViewById<TextView>(R.id.light_status)
 
         // Recuperar valores desde SharedPreferences
         val sharedPreferences = getSharedPreferences("TvSettings", Context.MODE_PRIVATE)
@@ -30,7 +31,12 @@ class MainActivity : AppCompatActivity() {
 
         // Actualizar los TextView de TV
         tvStatus.text = if (isTvOn) "Encendido" else "Apagado"
-        volumeStatus.text = "Volumen: $volumeLevel"
+        if (isTvOn) {
+            volumeStatus.text = "Volumen: $volumeLevel"
+            volumeStatus.visibility = TextView.VISIBLE // Hacer visible el volumen si la TV está encendida
+        } else {
+            volumeStatus.visibility = TextView.INVISIBLE // Hacer invisible el volumen si la TV está apagada
+        }
 
         // Recuperar el porcentaje de apertura de persianas
         val blindsPercentageValue = getSharedPreferences("BlindsSettings", Context.MODE_PRIVATE)
@@ -79,10 +85,14 @@ class MainActivity : AppCompatActivity() {
         val volumeLevel = sharedPreferences.getInt("volumeLevel", 50)
 
         val tvStatus = findViewById<TextView>(R.id.tv_status)
-        val volumeStatus = findViewById<TextView>(R.id.volume_status)
 
         tvStatus.text = if (isTvOn) "Encendido" else "Apagado"
-        volumeStatus.text = "Volumen: $volumeLevel"
+        if (isTvOn) {
+            volumeStatus.text = "Volumen: $volumeLevel"
+            volumeStatus.visibility = TextView.VISIBLE // Hacer visible el volumen si la TV está encendida
+        } else {
+            volumeStatus.visibility = TextView.INVISIBLE // Hacer invisible el volumen si la TV está apagada
+        }
 
         // Recuperar y actualizar el porcentaje de persianas
         val blindsPercentageValue = getSharedPreferences("BlindsSettings", Context.MODE_PRIVATE)
