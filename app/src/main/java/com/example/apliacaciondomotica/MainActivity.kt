@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var lightStatus: TextView
     private lateinit var termostatoStatus: TextView
     private lateinit var termostatoButton: Button
+    private lateinit var conectarButton: Button
+    private lateinit var rutinasButton: Button
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
         lightStatus = findViewById(R.id.light_status)
         termostatoStatus = findViewById(R.id.termostato_Status)
         termostatoButton = findViewById(R.id.btn_Termostato)
+        conectarButton = findViewById<Button>(R.id.btn_connect_device)
+        rutinasButton = findViewById<Button>(R.id.btn_routines)
 
         // Configurar los botones para las actividades correspondientes
         configurarBotones()
@@ -42,6 +46,15 @@ class MainActivity : AppCompatActivity() {
         // Botón para apagar todos los dispositivos
         btnOff.setOnClickListener {
             apagarTodo()
+        }
+
+        conectarButton.setOnClickListener{
+            Toast.makeText(this, "Conectando dispositivo...", Toast.LENGTH_SHORT).show()
+        }
+
+        rutinasButton.setOnClickListener{
+            val intent = Intent(this, RutinasActivity::class.java)
+            startActivity(intent)
         }
 
         // Botón para ir a la configuración del termostato

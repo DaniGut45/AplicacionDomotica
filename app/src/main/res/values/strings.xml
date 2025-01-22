@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">ApliacacionDomotica</string>
+    <string name="app_name">Aplicación Domótica</string>
+    <string-array name="dispositivos_array">
+        <item>TV</item>
+        <item>Luces</item>
+        <item>Persianas</item>
+        <item>Termostato</item>
+    </string-array>
 </resources>

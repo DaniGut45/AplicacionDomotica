@@ -11,6 +11,8 @@
         android:theme="@style/Theme.ApliacacionDomotica">
 
         <activity android:name=".TermostatoSettings"/>
+        <activity android:name=".RutinasActivity"/>
+        <activity android:name=".CrearRutinaActivity"/>
         <activity android:name=".PersianasControlActivity"/>
         <activity android:name=".LucesSettings"/>
         <activity android:name=".TvControlActivity"/>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".CrearRutinaActivity">
+
+    <TextView
+        android:id="@+id/txt_titulo_crear_rutina"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Nueva Rutina"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp" />
+
+    <TextView
+        android:id="@+id/txt_seleccionar_dispositivo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar Dispositivo"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/txt_titulo_crear_rutina"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner_dispositivos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFFFFF"
+        android:entries="@array/dispositivos_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_seleccionar_dispositivo" />
+
+
+    <TextView
+        android:id="@+id/txt_hora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora de Ejecución"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/spinner_dispositivos"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <TimePicker
+        android:id="@+id/time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:timePickerMode="clock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_hora" /> <!-- Utiliza 'spinner' o 'clock' según tu preferencia -->
+
+    <Button
+        android:id="@+id/btn_guardar_rutina"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#222222"
+        android:text="Guardar Rutina"
+        app:layout_constraintTop_toBottomOf="@id/time_picker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
