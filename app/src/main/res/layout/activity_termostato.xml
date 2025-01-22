@@ -39,23 +39,23 @@
         android:id="@+id/textViewMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="0°C"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/volume_seekbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0" />
+        app:layout_constraintTop_toBottomOf="@id/volume_seekbar" />
 
     <TextView
         android:id="@+id/textViewMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:text="50°C"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/volume_seekbar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1" />
+        app:layout_constraintTop_toBottomOf="@id/volume_seekbar" />
 
     <Button
         android:id="@+id/buttonBorrar"

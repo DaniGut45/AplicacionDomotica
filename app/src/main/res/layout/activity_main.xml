@@ -42,7 +42,7 @@
 
     <LinearLayout
         android:id="@+id/devices_container"
-        android:layout_width="383dp"
+        android:layout_width="300dp"
         android:layout_height="331dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_off"
@@ -169,38 +169,40 @@
 
     <Button
         android:id="@+id/btn_connect_device"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#222222"
         android:text="Conectar otro dispositivo"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_routines"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_off"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_width="300dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#222222"
         android:text="Apagar todo"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_connect_device"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_routines"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="#222222"
         android:text="Rutinas"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
