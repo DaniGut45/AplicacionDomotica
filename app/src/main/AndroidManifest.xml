@@ -13,6 +13,7 @@
         android:theme="@style/Theme.ApliacacionDomotica"
         tools:targetApi="31">
         <activity android:name=".TvControlActivity"/>
+        <activity android:name=".PersianasControlActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

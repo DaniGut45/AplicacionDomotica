@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="percentage_text" type="id" />
+    <item name="title_blinds" type="id" />
+    <item name="seekbar_blinds" type="id" />
+    <item name="button_save_blinds" type="id" />
+</resources>
