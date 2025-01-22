@@ -1,5 +1,6 @@
 package com.example.apliacaciondomotica
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var blindsPercentage: TextView
+    private lateinit var lightStatus: TextView // Agregar la variable para el estado de las luces
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         val tvStatus = findViewById<TextView>(R.id.tv_status)
         val volumeStatus = findViewById<TextView>(R.id.volume_status)
         blindsPercentage = findViewById<TextView>(R.id.blinds_percentage)
+        lightStatus = findViewById<TextView>(R.id.light_status) // Inicializar la variable
 
         // Recuperar valores desde SharedPreferences
         val sharedPreferences = getSharedPreferences("TvSettings", Context.MODE_PRIVATE)
@@ -35,6 +39,11 @@ class MainActivity : AppCompatActivity() {
         // Actualizar el TextView de persianas
         blindsPercentage.text = "Apertura: ${blindsPercentageValue}%"
 
+        // Recuperar el estado de las luces
+        val isLucesOn = getSharedPreferences("LucesSettings", Context.MODE_PRIVATE)
+            .getBoolean("lucesState", false)
+        lightStatus.text = if (isLucesOn) "Luces Encendidas" else "Luces Apagadas"
+
         // Botón "TV"
         val btnTv = findViewById<Button>(R.id.btn_tv)
         btnTv.setOnClickListener {
@@ -43,10 +52,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val btnConnect = findViewById<Button>(R.id.btn_connect_device)
-        btnConnect.setOnClickListener{
+        btnConnect.setOnClickListener {
             Toast.makeText(this, "Conectando Dispositivo...", Toast.LENGTH_SHORT).show()
         }
 
+        val btnLight = findViewById<Button>(R.id.btn_lights)
+        btnLight.setOnClickListener {
+            val intent = Intent(this, LucesSettings::class.java)
+            startActivity(intent)
+        }
 
         // Botón "Persianas"
         val btnBlinds = findViewById<Button>(R.id.btn_blinds)
@@ -75,5 +89,10 @@ class MainActivity : AppCompatActivity() {
             .getInt("blindsPercentage", 0)
 
         blindsPercentage.text = "Apertura: ${blindsPercentageValue}%"
+
+        // Recuperar el estado de las luces
+        val isLucesOn = getSharedPreferences("LucesSettings", Context.MODE_PRIVATE)
+            .getBoolean("lucesState", false)
+        lightStatus.text = if (isLucesOn) "Luces Encendidas" else "Luces Apagadas"
     }
 }
