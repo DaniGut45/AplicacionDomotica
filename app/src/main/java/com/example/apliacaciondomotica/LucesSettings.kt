@@ -1,17 +1,24 @@
 package com.example.apliacaciondomotica
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.random.Random
 
 class LucesSettings : AppCompatActivity() {
     private lateinit var switchLuces: Switch
     private lateinit var buttonBorrar: Button
     private lateinit var buttonActualizar: Button
+    private lateinit var progressBarActualizar: ProgressBar
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_luces)
@@ -19,6 +26,7 @@ class LucesSettings : AppCompatActivity() {
         switchLuces = findViewById(R.id.switch_luces)
         buttonBorrar = findViewById(R.id.buttonBorrar)
         buttonActualizar = findViewById(R.id.buttonActualizar)
+        progressBarActualizar = findViewById(R.id.progressBarActualizar)
 
         // Recuperar el estado guardado del switch
         val sharedPreferences = getSharedPreferences("LucesSettings", Context.MODE_PRIVATE)
@@ -33,8 +41,20 @@ class LucesSettings : AppCompatActivity() {
             editor.apply()
         }
 
+        // Configurar el botón de "Actualizar Firmware"
         buttonActualizar.setOnClickListener {
-            Toast.makeText(this, "Actualizando Firmware...", Toast.LENGTH_SHORT).show()
+            // Mostrar el Toast y el ProgressBar
+            Toast.makeText(this, "Actualizando Firmware de las luces...", Toast.LENGTH_SHORT).show()
+            progressBarActualizar.visibility = ProgressBar.VISIBLE
+
+            // Generar un retardo aleatorio entre 2 y 5 segundos (2000 ms y 5000 ms)
+            val delayMillis = Random.nextInt(1000, 15001)
+
+            // Ocultar el ProgressBar después del tiempo aleatorio
+            Handler(Looper.getMainLooper()).postDelayed({
+                progressBarActualizar.visibility = ProgressBar.INVISIBLE
+                Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+            }, delayMillis.toLong())
         }
     }
 

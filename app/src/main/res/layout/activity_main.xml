@@ -8,50 +8,55 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
-            <!-- Botón Usuario -->
-            <ImageButton
-                android:id="@+id/btn_user"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="50dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_user"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#FFFFFF" />
+    <!-- Botón Usuario -->
+    <ImageButton
+        android:id="@+id/btn_user"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFFFFF" />
 
-            <!-- Botón Ajustes -->
-            <ImageButton
-                android:id="@+id/btn_settings"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="16dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/ic_settings"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="#FFFFFF" />
+    <!-- Botón Ajustes -->
+    <ImageButton
+        android:id="@+id/btn_settings"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="#FFFFFF" />
 
     <!-- Dispositivos -->
+
+    <!-- Botón para conectar otro dispositivo -->
+
+    <!-- Botón Rutinas -->
+
     <LinearLayout
         android:id="@+id/devices_container"
+        android:layout_width="383dp"
+        android:layout_height="331dp"
         android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/btn_user"
-        app:layout_constraintBottom_toTopOf="@id/btn_connect_device"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_off"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_user"
+        app:layout_constraintVertical_bias="0.336">
 
         <!-- Ejemplo de Dispositivo: TV -->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_tv"
@@ -83,10 +88,10 @@
 
         <!-- Ejemplo de Dispositivo: Persianas -->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_blinds"
@@ -109,10 +114,10 @@
 
         <!-- Estado de Luces -->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_lights"
@@ -135,10 +140,10 @@
 
         <!-- Estado del termostato -->
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_Termostato"
@@ -162,20 +167,31 @@
         <!-- Otros dispositivos (Luces, etc.) -->
     </LinearLayout>
 
-    <!-- Botón para conectar otro dispositivo -->
     <Button
         android:id="@+id/btn_connect_device"
-        android:layout_width="0dp"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="#222222"
         android:text="Conectar otro dispositivo"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/btn_routines"
+        app:layout_constraintBottom_toTopOf="@+id/btn_routines"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Botón Rutinas -->
+    <Button
+        android:id="@+id/btn_off"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#222222"
+        android:text="Apagar todo"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/btn_connect_device"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/btn_routines"
         android:layout_width="0dp"

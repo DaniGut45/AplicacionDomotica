@@ -4,18 +4,23 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlin.random.Random
 
 class TvControlActivity : AppCompatActivity() {
     private lateinit var tvSwitch: Switch
     private lateinit var volumeSeekBar: SeekBar
     private lateinit var volumeText: TextView
     private lateinit var botonActualizar: Button
+    private lateinit var progressBarActualizar: ProgressBar
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +30,11 @@ class TvControlActivity : AppCompatActivity() {
         tvSwitch = findViewById(R.id.switch_tv)
         volumeSeekBar = findViewById(R.id.volume_seekbar)
         volumeText = findViewById(R.id.volume_text)
-        botonActualizar = findViewById<Button>(R.id.buttonActualizar)
+        botonActualizar = findViewById(R.id.buttonActualizar)
+        progressBarActualizar = findViewById(R.id.progressBarActualizar)
 
         val sharedPreferences = getSharedPreferences("TvSettings", Context.MODE_PRIVATE)
+
 
         // Recuperar estado de la TV y volumen
         val isTvOn = sharedPreferences.getBoolean("tvState", false)
@@ -41,8 +48,20 @@ class TvControlActivity : AppCompatActivity() {
         // Manejar la visibilidad del SeekBar y TextView de volumen según el estado de la TV
         updateVolumeVisibility(isTvOn)
 
+        // Configurar el botón de "Actualizar Firmware"
         botonActualizar.setOnClickListener {
-            Toast.makeText(this, "Actualizando Firmware...", Toast.LENGTH_SHORT).show()
+            // Mostrar el Toast y el ProgressBar
+            Toast.makeText(this, "Actualizando Firmware de la TV...", Toast.LENGTH_SHORT).show()
+            progressBarActualizar.visibility = ProgressBar.VISIBLE
+
+            // Generar un retardo aleatorio entre 2 y 5 segundos (2000 ms y 5000 ms)
+            val delayMillis = Random.nextInt(1000, 15001)
+
+            // Ocultar el ProgressBar después del tiempo aleatorio
+            Handler(Looper.getMainLooper()).postDelayed({
+                progressBarActualizar.visibility = ProgressBar.INVISIBLE
+                Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+            }, delayMillis.toLong())
         }
 
         // Actualizar el estado del Switch
