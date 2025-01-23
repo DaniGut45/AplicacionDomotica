@@ -1,17 +1,17 @@
 package com.example.apliacaciondomotica
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Spinner
-import android.widget.TimePicker
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class CrearRutinaActivity : AppCompatActivity() {
 
     private lateinit var spinnerDispositivos: Spinner
+    private lateinit var switchToggle: Switch
+    private lateinit var seekBarValue: SeekBar
+    private lateinit var txtSeekBarValue: TextView
     private lateinit var timePicker: TimePicker
     private lateinit var btnGuardarRutina: Button
 
@@ -19,27 +19,80 @@ class CrearRutinaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_rutina)
 
+        // Vincula los elementos del XML
         spinnerDispositivos = findViewById(R.id.spinner_dispositivos)
+        switchToggle = findViewById(R.id.switch_toggle)
+        seekBarValue = findViewById(R.id.seekBar_value)
+        txtSeekBarValue = findViewById(R.id.txt_seekbar_value)
         timePicker = findViewById(R.id.time_picker)
         btnGuardarRutina = findViewById(R.id.btn_guardar_rutina)
 
+        spinnerDispositivos.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // Resetea visibilidad
+                switchToggle.visibility = View.GONE
+                seekBarValue.visibility = View.GONE
+                txtSeekBarValue.visibility = View.GONE
+
+                when (position) {
+                    0 -> {} // Nada seleccionado
+                    1 -> { // TV
+                        switchToggle.visibility = View.VISIBLE
+                        seekBarValue.visibility = View.VISIBLE
+                        txtSeekBarValue.visibility = View.VISIBLE
+                        seekBarValue.max = 100
+                        seekBarValue.progress = 50 // Valor inicial
+                        txtSeekBarValue.text = "Volumen: ${seekBarValue.progress}"
+                    }
+                    2 -> { // Luces
+                        switchToggle.visibility = View.VISIBLE
+                    }
+                    3 -> { // Persianas
+                        seekBarValue.visibility = View.VISIBLE
+                        txtSeekBarValue.visibility = View.VISIBLE
+                        seekBarValue.max = 100 // Cambiado a 100
+                        seekBarValue.progress = 0 // Valor inicial
+                        txtSeekBarValue.text = "Porcentaje: ${seekBarValue.progress}%"
+                    }
+                    4 -> { // Termostato
+                        seekBarValue.visibility = View.VISIBLE
+                        txtSeekBarValue.visibility = View.VISIBLE
+                        seekBarValue.max = 50
+                        seekBarValue.progress = 0 // Valor inicial
+                        txtSeekBarValue.text = "Temperatura: ${seekBarValue.progress}°"
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        seekBarValue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                when (spinnerDispositivos.selectedItemPosition) {
+                    1 -> txtSeekBarValue.text = "Volumen: $progress"
+                    3 -> txtSeekBarValue.text = "Porcentaje: $progress%"
+                    4 -> txtSeekBarValue.text = "Temperatura: $progress°"
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+        })
+
         btnGuardarRutina.setOnClickListener {
-            val dispositivoSeleccionado = spinnerDispositivos.selectedItem.toString()
             val hora = timePicker.hour
             val minutos = timePicker.minute
+            val dispositivo = spinnerDispositivos.selectedItem.toString()
+            val estadoSwitch = switchToggle.isChecked
+            val valorSeekBar = seekBarValue.progress
 
-            // Guardar la rutina en SharedPreferences
-            val sharedPreferences = getSharedPreferences("Rutinas", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("rutina_$hora:$minutos", dispositivoSeleccionado)
-            editor.apply()
-
-            Toast.makeText(this, "Rutina guardada para las $hora:$minutos", Toast.LENGTH_SHORT).show()
-
-            // Regresar a la actividad de rutinas
             val intent = Intent(this, RutinasActivity::class.java)
+            intent.putExtra("dispositivo", dispositivo)
+            intent.putExtra("hora", "$hora:$minutos")
+            intent.putExtra("estado", estadoSwitch)
+            intent.putExtra("valor", valorSeekBar)
             startActivity(intent)
-            finish() // Finaliza la actividad actual
         }
     }
 }
