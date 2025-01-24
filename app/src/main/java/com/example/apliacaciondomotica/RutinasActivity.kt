@@ -34,14 +34,22 @@ class RutinasActivity : AppCompatActivity() {
         // Cargar rutinas guardadas al iniciar
         cargarRutinas()
 
-        // Si hay datos del intent, agregar rutina
+        // Verificar si hay datos enviados desde CrearRutinaActivity
         val dispositivo = intent.getStringExtra("dispositivo")
         val hora = intent.getStringExtra("hora")
-        val estadoSwitch = intent.getBooleanExtra("estado", false)
-        val valorSeekBar = intent.getIntExtra("valor", -1)
+        val estado = intent.getBooleanExtra("estado", false)
+        val valor = intent.getIntExtra("valor", -1)
+        val position = intent.getIntExtra("position", -1) // Posición de la rutina (si se modifica)
 
         if (dispositivo != null && hora != null) {
-            agregarRutina(Rutina(dispositivo, hora, estadoSwitch, valorSeekBar))
+            val rutina = Rutina(dispositivo, hora, estado, valor)
+            if (position != -1) {
+                // Actualizar rutina existente
+                actualizarRutina(position, rutina)
+            } else {
+                // Agregar una nueva rutina
+                agregarRutina(rutina)
+            }
         }
     }
 
@@ -76,8 +84,25 @@ class RutinasActivity : AppCompatActivity() {
         return rutinas
     }
 
-    private fun agregarRutina(rutina: Rutina, guardar: Boolean = true) {
-        // Inflate el layout de la rutina
+    private fun agregarRutina(rutina: Rutina, guardar: Boolean = true, position: Int? = null) {
+        // Si se pasa una posición, actualizar la rutina existente
+        if (position != null) {
+            val rutinaView = rutinaLayout.getChildAt(position)
+            val txtRutinaInfo = rutinaView.findViewById<TextView>(R.id.txt_rutina_info)
+            val estadoTexto = if (rutina.estado) "Encendido" else "Apagado"
+            val valorTexto = when (rutina.dispositivo) {
+                "TV" -> "Volumen: ${rutina.valor}"
+                "Luces" -> estadoTexto
+                "Persianas" -> "Altura: ${rutina.valor}%"
+                "Termostato" -> "Temperatura: ${rutina.valor}°"
+                else -> ""
+            }
+            txtRutinaInfo.text = "Dispositivo: ${rutina.dispositivo}\nHora: ${rutina.hora}\n$valorTexto"
+            if (guardar) guardarRutinas()
+            return
+        }
+
+        // Si no hay posición, añadir una nueva rutina
         val inflater = LayoutInflater.from(this)
         val nuevaRutinaView = inflater.inflate(R.layout.rutina_item, rutinaLayout, false)
 
@@ -101,8 +126,10 @@ class RutinasActivity : AppCompatActivity() {
             intent.putExtra("hora", rutina.hora)
             intent.putExtra("estado", rutina.estado)
             intent.putExtra("valor", rutina.valor)
+            intent.putExtra("position", rutinaLayout.indexOfChild(nuevaRutinaView)) // Pasar la posición
             startActivity(intent)
         }
+
 
         btnBorrar.setOnClickListener {
             rutinaLayout.removeView(nuevaRutinaView)
@@ -112,6 +139,7 @@ class RutinasActivity : AppCompatActivity() {
         rutinaLayout.addView(nuevaRutinaView)
         if (guardar) guardarRutinas()
     }
+
 
     private fun convertirTextoARutina(texto: String): Rutina? {
         val partes = texto.split(",")
@@ -129,4 +157,24 @@ class RutinasActivity : AppCompatActivity() {
     private fun convertirRutinaATexto(rutina: Rutina): String {
         return "${rutina.dispositivo},${rutina.hora},${rutina.estado},${rutina.valor}"
     }
+
+    private fun actualizarRutina(position: Int, rutina: Rutina) {
+        val rutinaView = rutinaLayout.getChildAt(position)
+
+        // Actualizar los datos del TextView en el rutina_item
+        val txtRutinaInfo = rutinaView.findViewById<TextView>(R.id.txt_rutina_info)
+        val estadoTexto = if (rutina.estado) "Encendido" else "Apagado"
+        val valorTexto = when (rutina.dispositivo) {
+            "TV" -> "Volumen: ${rutina.valor}"
+            "Luces" -> estadoTexto
+            "Persianas" -> "Altura: ${rutina.valor}%"
+            "Termostato" -> "Temperatura: ${rutina.valor}°"
+            else -> ""
+        }
+        txtRutinaInfo.text = "Dispositivo: ${rutina.dispositivo}\nHora: ${rutina.hora}\n$valorTexto"
+
+        // Guardar los cambios
+        guardarRutinas()
+    }
+
 }
