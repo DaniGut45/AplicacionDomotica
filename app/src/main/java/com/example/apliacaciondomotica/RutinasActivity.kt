@@ -128,8 +128,10 @@ class RutinasActivity : AppCompatActivity() {
             intent.putExtra("valor", rutina.valor)
             intent.putExtra("position", rutinaLayout.indexOfChild(nuevaRutinaView)) // Pasar la posición
             startActivity(intent)
+            // Eliminar la vista actual del layout antes de lanzar la actividad
+            rutinaLayout.removeView(nuevaRutinaView)
+            guardarRutinas() // Guardar cambios tras eliminar
         }
-
 
         btnBorrar.setOnClickListener {
             rutinaLayout.removeView(nuevaRutinaView)

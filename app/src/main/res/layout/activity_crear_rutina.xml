@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,111 +7,122 @@
     android:background="#000000"
     tools:context=".CrearRutinaActivity">
 
-    <TextView
-        android:id="@+id/txt_titulo_crear_rutina"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="Crear Nueva Rutina"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txt_seleccionar_dispositivo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:text="Seleccionar Dispositivo"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_titulo_crear_rutina" />
+        <TextView
+            android:id="@+id/txt_titulo_crear_rutina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/crear_nueva_rutina"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinner_dispositivos"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="#FFFFFF"
-        android:entries="@array/dispositivos_array"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_seleccionar_dispositivo" />
+        <TimePicker
+            android:id="@+id/time_picker"
+            android:layout_width="370dp"
+            android:layout_height="385dp"
+            android:layout_marginTop="24dp"
+            android:timePickerMode="clock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_hora" />
 
-    <!-- Switch for devices -->
-    <Switch
-        android:id="@+id/switch_toggle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:text="Encender/Apagar"
-        android:textColor="#FFFFFF"
-        android:trackTint="#FFFFFF"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinner_dispositivos" />
+        <Spinner
+            android:id="@+id/spinner_dispositivos"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#FFFFFF"
+            android:entries="@array/dispositivos_array"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_seleccionar_dispositivo" />
 
-    <!-- SeekBar -->
-    <SeekBar
-        android:id="@+id/seekBar_value"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FFFFFF"
-        android:foregroundTint="#FFFFFF"
-        android:progressTint="#FFFFFF"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/switch_toggle" />
+        <Button
+            android:id="@+id/btn_guardar_rutina"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#222222"
+            android:text="@string/guardar_rutina"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/time_picker" />
 
-    <!-- TextView for SeekBar value (centered below SeekBar) -->
-    <TextView
-        android:id="@+id/txt_seekbar_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:visibility="gone"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/seekBar_value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/txt_hora"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="28dp"
+            android:text="@string/hora_de_ejecuci_n"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_seekbar_value" />
 
-    <!-- TimePicker -->
-    <TextView
-        android:id="@+id/txt_hora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Hora de Ejecución"
-        android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_seekbar_value" />
+        <TextView
+            android:id="@+id/txt_seleccionar_dispositivo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/seleccionar_dispositivo"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_titulo_crear_rutina" />
 
-    <TimePicker
-        android:id="@+id/time_picker"
-        android:layout_width="370dp"
-        android:layout_height="385dp"
-        android:layout_marginTop="8dp"
-        android:timePickerMode="clock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_hora" />
+        <!-- Switch for devices -->
 
-    <!-- Save Button -->
-    <Button
-        android:id="@+id/btn_guardar_rutina"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#222222"
-        android:text="Guardar Rutina"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/time_picker" />
+        <!-- SeekBar -->
+        <Switch
+            android:id="@+id/switch_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="118dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#FFFFFF"
+            android:text="@string/encender_apagar"
+            android:textColor="#FFFFFF"
+            android:trackTint="#FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinner_dispositivos"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <SeekBar
+            android:id="@+id/seekBar_value"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#FFFFFF"
+            android:foregroundTint="#FFFFFF"
+            android:progressTint="#FFFFFF"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_toggle" />
+
+        <!-- TextView for SeekBar value (centered below SeekBar) -->
+        <TextView
+            android:id="@+id/txt_seekbar_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

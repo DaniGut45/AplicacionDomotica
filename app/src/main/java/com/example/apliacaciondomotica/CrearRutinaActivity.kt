@@ -1,13 +1,23 @@
 package com.example.apliacaciondomotica
 
 import android.annotation.SuppressLint
+import android.app.AlarmManager
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Calendar
 
 class CrearRutinaActivity : AppCompatActivity() {
+
+    private val ID_CANAL = "canal_rutinas_01"
+    private val idNotificacion = 101
 
     private lateinit var spinnerDispositivos: Spinner
     private lateinit var switchToggle: Switch
@@ -19,6 +29,8 @@ class CrearRutinaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_crear_rutina)
+
+        crearCanalDeNotificaciones()
 
         // Vincula los elementos del XML
         spinnerDispositivos = findViewById(R.id.spinner_dispositivos)
@@ -97,4 +109,39 @@ class CrearRutinaActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    private fun crearCanalDeNotificaciones() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val nombre = "Canal de Rutinas"
+            val descripcion = "Notificaciones para las rutinas programadas"
+            val importancia = NotificationManager.IMPORTANCE_HIGH
+            val canal = NotificationChannel(ID_CANAL, nombre, importancia).apply {
+                description = descripcion
+            }
+
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(canal)
+        }
+    }
+
+    private fun programarNotificacion(dispositivo: String, estado: Boolean, valor: Int, hora: Int, minutos: Int) {
+        val calendario = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, hora)
+            set(Calendar.MINUTE, minutos)
+            set(Calendar.SECOND, 0)
+        }
+
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        val intent = Intent(this, RutinaReceiver::class.java).apply {
+            putExtra("dispositivo", dispositivo)
+            putExtra("estado", estado)
+            putExtra("valor", valor)
+        }
+
+        val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_IMMUTABLE)
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendario.timeInMillis, pendingIntent)
+
+        Toast.makeText(this, "Rutina programada a las $hora:$minutos", Toast.LENGTH_SHORT).show()
+    }
+
+
 }

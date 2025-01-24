@@ -8,37 +8,19 @@
     android:background="#000000"
     tools:context=".MainActivity">
 
-    <!-- Botón Usuario -->
-    <ImageButton
-        android:id="@+id/btn_user"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:src="@drawable/ic_user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="#FFFFFF" />
 
-    <!-- Botón Ajustes -->
     <ImageButton
         android:id="@+id/btn_settings"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="64dp"
         android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
         android:src="@drawable/ic_settings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="#FFFFFF" />
-
-    <!-- Dispositivos -->
-
-    <!-- Botón para conectar otro dispositivo -->
-
-    <!-- Botón Rutinas -->
 
     <LinearLayout
         android:id="@+id/devices_container"
@@ -47,9 +29,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_off"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_user"
-        app:layout_constraintVertical_bias="0.336">
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Ejemplo de Dispositivo: TV -->
         <LinearLayout
@@ -64,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#222222"
-                android:text="TV"
+                android:text="@string/tv"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -73,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
-                android:text="Apagado"
+                android:text="@string/apagado"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -82,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="0dp"
-                android:text="Volumen: 50"
+                android:text="@string/volumen_50"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -99,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#222222"
-                android:text="Persianas"
+                android:text="@string/persianas"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -108,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="0dp"
-                android:text="Apertura: 0%"
+                android:text="@string/apertura_0"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -125,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#222222"
-                android:text="Luces"
+                android:text="@string/luces"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -134,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
-                android:text="Luces Apagadas"
+                android:text="@string/luces_apagadas"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -151,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:backgroundTint="#222222"
-                android:text="Termostato"
+                android:text="@string/termostato"
                 android:textColor="#FFFFFF" />
 
             <TextView
@@ -160,7 +140,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:gravity="center_vertical"
-                android:text="Temperatura: 0ºC"
+                android:text="@string/temperatura_0_c"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
 
@@ -173,7 +153,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#222222"
-        android:text="Conectar otro dispositivo"
+        android:text="@string/conectar_otro_dispositivo"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_routines"
         app:layout_constraintEnd_toEndOf="parent"
@@ -186,7 +166,7 @@
         android:layout_height="47dp"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#222222"
-        android:text="Apagar todo"
+        android:text="@string/apagar_todo"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/btn_connect_device"
         app:layout_constraintEnd_toEndOf="parent"
@@ -199,7 +179,7 @@
         android:layout_height="50dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="#222222"
-        android:text="Rutinas"
+        android:text="@string/rutinas"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

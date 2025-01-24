@@ -46,6 +46,5 @@
     <string name="temperatura_25_c">Temperatura: 25°C</string>
     <string name="modificar">Modificar</string>
     <string name="borrar">Borrar</string>
-    <string name="conectando_dispositivo">Conectando dispositivo...</string>
 
 </resources>

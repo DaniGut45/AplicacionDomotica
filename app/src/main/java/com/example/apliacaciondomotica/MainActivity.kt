@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var termostatoButton: Button
     private lateinit var conectarButton: Button
     private lateinit var rutinasButton: Button
+    private lateinit var btnAjustes: ImageButton
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         termostatoButton = findViewById(R.id.btn_Termostato)
         conectarButton = findViewById<Button>(R.id.btn_connect_device)
         rutinasButton = findViewById<Button>(R.id.btn_routines)
+        btnAjustes = findViewById(R.id.btn_settings)
 
         // Configurar los botones para las actividades correspondientes
         configurarBotones()
@@ -48,9 +51,16 @@ class MainActivity : AppCompatActivity() {
             apagarTodo()
         }
 
-        conectarButton.setOnClickListener{
-            Toast.makeText(this, "Conectando dispositivo...", Toast.LENGTH_SHORT).show()
+        btnAjustes.setOnClickListener{
+            val intent = Intent(this, AjustesActivity::class.java)
+            startActivity(intent)
         }
+
+        conectarButton.setOnClickListener{
+            Toast.makeText(this, getString(R.string.conectando_dispositivo), Toast.LENGTH_SHORT).show()
+        }
+
+
 
         rutinasButton.setOnClickListener{
             val intent = Intent(this, RutinasActivity::class.java)

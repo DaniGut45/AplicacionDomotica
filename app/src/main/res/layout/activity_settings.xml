@@ -1,0 +1,104 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".AjustesActivity">
+
+    <LinearLayout
+        android:id="@+id/configuracion_cuenta_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:background="#1E1E1E"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/idioma"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner_dispositivos"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:entries="@array/arrayIdiomas"
+                android:background="@android:color/white"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/notificaciones"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <Switch
+                android:id="@+id/switch_notificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/modo_oscuro"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <Switch
+                android:id="@+id/switch_modo_oscuro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_guardar_cambios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#222222"
+        android:text="@string/guardar_cambios"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/configuracion_cuenta_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

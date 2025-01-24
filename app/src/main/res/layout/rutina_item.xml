@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="#444444"
-                android:text="Modificar"
+                android:text="@string/modificar"
                 android:textColor="#FFFFFF" />
 
             <Button
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FF4444"
-                android:text="Borrar"
+                android:text="@string/borrar"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
