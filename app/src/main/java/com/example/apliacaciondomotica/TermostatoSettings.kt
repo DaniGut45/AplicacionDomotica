@@ -40,7 +40,7 @@ class TermostatoSettings: AppCompatActivity() {
         val buttonBorrar: Button
         buttonBorrar = findViewById(R.id.buttonBorrar)
         buttonBorrar.setOnClickListener{
-            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.dispositivo_borrado), Toast.LENGTH_SHORT).show()
         }
 
         // Listener del SeekBar para actualizar el texto
@@ -74,7 +74,7 @@ class TermostatoSettings: AppCompatActivity() {
             // Simular una actualización con un retraso
             buttonActualizar.postDelayed({
                 progressBarActualizar.visibility = View.INVISIBLE
-                Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.firmware_actualizado_correctamente), Toast.LENGTH_SHORT).show()
             }, 3000) // 3 segundos de simulación
         }
     }

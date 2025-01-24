@@ -61,7 +61,7 @@ class LucesSettings : AppCompatActivity() {
             // Ocultar el ProgressBar después del tiempo aleatorio
             Handler(Looper.getMainLooper()).postDelayed({
                 progressBarActualizar.visibility = ProgressBar.INVISIBLE
-                Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.firmware_actualizado_correctamente), Toast.LENGTH_SHORT).show()
             }, delayMillis.toLong())
         }
     }

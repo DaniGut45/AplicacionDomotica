@@ -50,6 +50,7 @@
     <string name="actualizando_firmware_de_las_luces">Actualizando Firmware de las luces...</string>
     <string name="firmware_actualizado_correctamente">Firmware actualizado correctamente</string>
     <string name="conectando_dispositivo">Conectando Dispositivos...</string>
-    <string name="todos_los_dispositivos_han_sido_apagados">Todos los dispositivos han sido apagados\n</string>
+    <string name="todos_los_dispositivos_han_sido_apagados">Todos los dispositivos han sido apagados</string>
+    <string name="actualizar_firmware_deTv">Actualizando firmware de la TV...</string>
 
 </resources>
