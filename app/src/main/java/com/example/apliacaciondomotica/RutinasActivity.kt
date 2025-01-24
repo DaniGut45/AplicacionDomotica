@@ -55,7 +55,7 @@ class RutinasActivity : AppCompatActivity() {
         val valorTexto = when (dispositivo) {
             "TV" -> "Volumen: $valor"
             "Luces" -> estadoTexto
-            "Persianas" -> "Altura: ${valor * 10}%"
+            "Persianas" -> "Altura: ${valor}%"
             "Termostato" -> "Temperatura: $valor°"
             else -> ""
         }

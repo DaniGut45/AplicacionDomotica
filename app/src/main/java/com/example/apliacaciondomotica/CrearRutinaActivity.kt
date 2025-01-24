@@ -1,5 +1,6 @@
 package com.example.apliacaciondomotica
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -68,6 +69,7 @@ class CrearRutinaActivity : AppCompatActivity() {
         }
 
         seekBarValue.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            @SuppressLint("SetTextI18n")
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 when (spinnerDispositivos.selectedItemPosition) {
                     1 -> txtSeekBarValue.text = "Volumen: $progress"
