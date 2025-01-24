@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Contenedor de cada rutina -->
+    <LinearLayout
+        android:id="@+id/rutina_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="#1E1E1E"
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!-- Contenedor de cada rutina -->
-        <LinearLayout
-            android:id="@+id/rutina_container"
+        <TextView
+            android:id="@+id/txt_rutina_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="#1E1E1E"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/txt_rutina_info"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_modificar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
+                android:layout_marginBottom="8dp"
+                android:backgroundTint="#444444"
+                android:text="Modificar"
+                android:textColor="#FFFFFF" />
 
-            <LinearLayout
+            <Button
+                android:id="@+id/btn_borrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/btn_modificar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:backgroundTint="#444444"
-                    android:text="Modificar"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/btn_borrar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FF4444"
-                    android:text="Borrar"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
+                android:backgroundTint="#FF4444"
+                android:text="Borrar"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
+</LinearLayout>

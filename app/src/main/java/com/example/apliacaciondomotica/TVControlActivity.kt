@@ -45,6 +45,12 @@ class TvControlActivity : AppCompatActivity() {
         volumeSeekBar.progress = volumeLevel
         volumeText.text = "Volumen: $volumeLevel"
 
+        val buttonBorrar: Button
+        buttonBorrar = findViewById(R.id.buttonBorrar)
+        buttonBorrar.setOnClickListener{
+            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+        }
+
         // Manejar la visibilidad del SeekBar y TextView de volumen según el estado de la TV
         updateVolumeVisibility(isTvOn)
 

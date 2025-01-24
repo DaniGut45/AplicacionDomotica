@@ -37,6 +37,12 @@ class TermostatoSettings: AppCompatActivity() {
         seekBar.progress = savedTemperature
         volumeText.text = "Temperatura: ${savedTemperature}ºC"
 
+        val buttonBorrar: Button
+        buttonBorrar = findViewById(R.id.buttonBorrar)
+        buttonBorrar.setOnClickListener{
+            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+        }
+
         // Listener del SeekBar para actualizar el texto
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {

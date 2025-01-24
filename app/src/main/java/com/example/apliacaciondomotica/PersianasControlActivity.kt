@@ -29,6 +29,12 @@ class PersianasControlActivity: AppCompatActivity() {
         botonActualizar = findViewById<Button>(R.id.buttonActualizar)
         progressBarActualizar = findViewById(R.id.progressBarActualizar)
 
+        val buttonBorrar: Button
+        buttonBorrar = findViewById(R.id.buttonBorrar)
+        buttonBorrar.setOnClickListener{
+            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+        }
+
         // Configurar el botón de "Actualizar Firmware"
         botonActualizar.setOnClickListener {
             // Mostrar el Toast y el ProgressBar

@@ -18,6 +18,7 @@ class LucesSettings : AppCompatActivity() {
     private lateinit var buttonActualizar: Button
     private lateinit var progressBarActualizar: ProgressBar
 
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +28,12 @@ class LucesSettings : AppCompatActivity() {
         buttonBorrar = findViewById(R.id.buttonBorrar)
         buttonActualizar = findViewById(R.id.buttonActualizar)
         progressBarActualizar = findViewById(R.id.progressBarActualizar)
+
+        val buttonBorrar: Button
+        buttonBorrar = findViewById(R.id.buttonBorrar)
+        buttonBorrar.setOnClickListener{
+            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+        }
 
         // Recuperar el estado guardado del switch
         val sharedPreferences = getSharedPreferences("LucesSettings", Context.MODE_PRIVATE)
