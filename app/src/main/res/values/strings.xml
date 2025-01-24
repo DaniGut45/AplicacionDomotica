@@ -11,7 +11,7 @@
 
     <string-array name="arrayIdiomas">
         <item>Español</item> <!-- Español -->
-        <item>Ingles</item> <!-- Inglés -->
+        <item>Italiano</item> <!-- Italiano -->
         <item>Francés</item> <!-- Francés -->
     </string-array>
     <string name="bienvenida_es" translatable="false">¡Bienvenido!</string>
@@ -46,6 +46,10 @@
     <string name="temperatura_25_c">Temperatura: 25°C</string>
     <string name="modificar">Modificar</string>
     <string name="borrar">Borrar</string>
-    <string name="conectando_dispositivo">Conectando dispositivo...</string>
+    <string name="dispositivo_borrado">Dispositivo Borrado</string>
+    <string name="actualizando_firmware_de_las_luces">Actualizando Firmware de las luces...</string>
+    <string name="firmware_actualizado_correctamente">Firmware actualizado correctamente</string>
+    <string name="conectando_dispositivo">Conectando Dispositivos...</string>
+    <string name="todos_los_dispositivos_han_sido_apagados">Todos los dispositivos han sido apagados\n</string>
 
 </resources>

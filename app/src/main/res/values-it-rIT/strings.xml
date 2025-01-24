@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Applicazione Domotica</string>
+    <string name="encender_apagar">Accendere/Spegnere</string>
+    <string-array name="dispositivos_array">
+        <item> </item>
+        <item>TV</item>
+        <item>Luci</item>
+        <item>Tende</item>
+        <item>Termostato</item>
+    </string-array>
+
+    <string-array name="arrayIdiomas">
+        <item>Italiano</item> <!-- Italiano -->
+        <item>Espagnolo</item> <!-- Español -->
+        <item>Francese</item> <!-- Francese -->
+    </string-array>
+    <string name="bienvenida_es" translatable="false">Benvenuto!</string>
+    <string name="bienvenida_en" translatable="false">Welcome!</string>
+    <string name="bienvenida_fr" translatable="false">Bienvenue!</string>
+    <string name="idioma">Lingua:</string>
+    <string name="notificaciones">Notifiche</string>
+    <string name="modo_oscuro">Modalità scura</string>
+    <string name="guardar_cambios">SALVA CAMBIAMENTI</string>
+    <string name="encender_tv">Accendere TV</string>
+    <string name="volumen_50">Volume: 50</string>
+    <string name="borrar_dispositivo">Elimina Dispositivo</string>
+    <string name="actualizar_firmware">Aggiorna Firmware</string>
+    <string name="crear_nueva_rutina">Crea Nuova Routine</string>
+    <string name="guardar_rutina">Salva Routine</string>
+    <string name="hora_de_ejecuci_n">Orario di Esecuzione</string>
+    <string name="seleccionar_dispositivo">Seleziona Dispositivo</string>
+    <string name="encender_luces">Accendere Luci</string>
+    <string name="tv">TV</string>
+    <string name="apagado">Spento</string>
+    <string name="persianas">Tende</string>
+    <string name="apertura_0">Apertura: 0%</string>
+    <string name="luces">Luci</string>
+    <string name="luces_apagadas">Luci Spente</string>
+    <string name="termostato">Termostato</string>
+    <string name="temperatura_0_c">Temperatura: 0ºC</string>
+    <string name="conectar_otro_dispositivo">Collegare un altro dispositivo</string>
+    <string name="apagar_todo">Spegnere tutto</string>
+    <string name="rutinas">Routine</string>
+    <string name="control_de_persianas">Controllo delle Tende</string>
+    <string name="rutinas_programadas">Routine Programmate</string>
+    <string name="temperatura_25_c">Temperatura: 25°C</string>
+    <string name="modificar">Modificare</string>
+    <string name="borrar">Elimina</string>
+    <string name="dispositivo_borrado">Dispositivo Eliminato</string>
+    <string name="actualizando_firmware_de_las_luces">Aggiornamento del Firmware delle luci...</string>
+    <string name="firmware_actualizado_correctamente">Firmware aggiornato correttamente</string>
+    <string name="conectando_dispositivo">Collegando Dispositivi...</string>
+    <string name="todos_los_dispositivos_han_sido_apagados">Tutti i dispositivi sono stati spenti\n</string>
+</resources>

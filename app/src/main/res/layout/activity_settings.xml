@@ -38,8 +38,9 @@
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:background="#1E1E1E"
                 android:entries="@array/arrayIdiomas"
-                android:background="@android:color/white"
+                android:foregroundTint="#FFFFFF"
                 android:padding="8dp" />
 
         </LinearLayout>
@@ -66,27 +67,6 @@
                 tools:ignore="UseSwitchCompatOrMaterialXml" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/modo_oscuro"
-                android:textColor="#FFFFFF"
-                android:textSize="16sp" />
-
-            <Switch
-                android:id="@+id/switch_modo_oscuro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-        </LinearLayout>
     </LinearLayout>
 
     <Button

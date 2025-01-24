@@ -129,7 +129,8 @@ class MainActivity : AppCompatActivity() {
         thermostatEditor.apply() // Aplicar cambios
 
         // Mostrar un mensaje de confirmación
-        Toast.makeText(this, "Todos los dispositivos han sido apagados", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,
+            getString(R.string.todos_los_dispositivos_han_sido_apagados), Toast.LENGTH_SHORT).show()
     }
 
     override fun onResume() {

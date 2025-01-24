@@ -31,7 +31,7 @@ class AjustesActivity : AppCompatActivity() {
     private fun cambiarIdioma(idioma: String) {
         val locale = when (idioma) {
             "Español" -> Locale("es")
-            "Inglés" -> Locale("GB")
+            "Italiano" -> Locale("it")
             "Francés" -> Locale("fr")
             else -> Locale.getDefault()
         }

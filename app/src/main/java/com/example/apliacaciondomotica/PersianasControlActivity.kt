@@ -32,13 +32,13 @@ class PersianasControlActivity: AppCompatActivity() {
         val buttonBorrar: Button
         buttonBorrar = findViewById(R.id.buttonBorrar)
         buttonBorrar.setOnClickListener{
-            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.dispositivo_borrado), Toast.LENGTH_SHORT).show()
         }
 
         // Configurar el botón de "Actualizar Firmware"
         botonActualizar.setOnClickListener {
             // Mostrar el Toast y el ProgressBar
-            Toast.makeText(this, "Actualizando Firmware de las persianas...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.actualizando_firmware_de_las_luces), Toast.LENGTH_SHORT).show()
             progressBarActualizar.visibility = ProgressBar.VISIBLE
 
             // Generar un retardo aleatorio entre 2 y 5 segundos (2000 ms y 5000 ms)
@@ -47,7 +47,8 @@ class PersianasControlActivity: AppCompatActivity() {
             // Ocultar el ProgressBar después del tiempo aleatorio
             Handler(Looper.getMainLooper()).postDelayed({
                 progressBarActualizar.visibility = ProgressBar.INVISIBLE
-                Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,
+                    getString(R.string.firmware_actualizado_correctamente), Toast.LENGTH_SHORT).show()
             }, delayMillis.toLong())
         }
 

@@ -10,40 +10,45 @@
     </string-array>
 
     <string-array name="arrayIdiomas">
-        <item>Espagnol</item>
-        <item>Anglais</item>
-        <item>Français</item>
+        <item>Français</item> <!-- Français -->
+        <item>Espagnol</item> <!-- Español -->
+        <item>Italien</item> <!-- Italien -->
     </string-array>
-    <string name="bienvenida_es" translatable="false">¡Bienvenido!</string>
+    <string name="bienvenida_es" translatable="false">Bienvenue!</string>
     <string name="bienvenida_en" translatable="false">Welcome!</string>
     <string name="bienvenida_fr" translatable="false">Bienvenue!</string>
-    <string name="idioma">Langue:</string>
+    <string name="idioma">Langue :</string>
     <string name="notificaciones">Notifications</string>
-    <string name="modo_oscuro">Mode Sombre</string>
+    <string name="modo_oscuro">Mode sombre</string>
     <string name="guardar_cambios">ENREGISTRER LES MODIFICATIONS</string>
     <string name="encender_tv">Allumer la TV</string>
     <string name="volumen_50">Volume : 50</string>
-    <string name="borrar_dispositivo">Supprimer l\'appareil</string>
-    <string name="actualizar_firmware">Mettre à jour le firmware</string>
-    <string name="crear_nueva_rutina">Créer une nouvelle routine</string>
-    <string name="guardar_rutina">Sauvegarder la routine</string>
-    <string name="hora_de_ejecuci_n">Heure d\'exécution</string>
-    <string name="seleccionar_dispositivo">Sélectionner un appareil</string>
-    <string name="encender_luces">Allumer les lumières</string>
+    <string name="borrar_dispositivo">Supprimer le Dispositif</string>
+    <string name="actualizar_firmware">Mettre à jour le Firmware</string>
+    <string name="crear_nueva_rutina">Créer Nouvelle Routine</string>
+    <string name="guardar_rutina">Enregistrer la Routine</string>
+    <string name="hora_de_ejecuci_n">Heure d\'Exécution</string>
+    <string name="seleccionar_dispositivo">Sélectionner le Dispositif</string>
+    <string name="encender_luces">Allumer les Lumières</string>
     <string name="tv">TV</string>
     <string name="apagado">Éteint</string>
     <string name="persianas">Stores</string>
     <string name="apertura_0">Ouverture : 0%</string>
     <string name="luces">Lumières</string>
-    <string name="luces_apagadas">Lumières éteintes</string>
+    <string name="luces_apagadas">Lumières Éteintes</string>
     <string name="termostato">Thermostat</string>
     <string name="temperatura_0_c">Température : 0ºC</string>
-    <string name="conectar_otro_dispositivo">Connecter un autre appareil</string>
-    <string name="apagar_todo">Tout éteindre</string>
+    <string name="conectar_otro_dispositivo">Connecter un autre dispositif</string>
+    <string name="apagar_todo">Tout Éteindre</string>
     <string name="rutinas">Routines</string>
-    <string name="control_de_persianas">Contrôle des stores</string>
-    <string name="rutinas_programadas">Routines programmées</string>
+    <string name="control_de_persianas">Contrôle des Stores</string>
+    <string name="rutinas_programadas">Routines Programmées</string>
     <string name="temperatura_25_c">Température : 25°C</string>
     <string name="modificar">Modifier</string>
     <string name="borrar">Supprimer</string>
+    <string name="dispositivo_borrado">Dispositif Supprimé</string>
+    <string name="actualizando_firmware_de_las_luces">Mise à jour du Firmware des lumières...</string>
+    <string name="firmware_actualizado_correctamente">Firmware mis à jour correctement</string>
+    <string name="conectando_dispositivo">Connexion des Dispositifs...</string>
+    <string name="todos_los_dispositivos_han_sido_apagados">Tous les appareils ont été éteints\n</string>
 </resources>

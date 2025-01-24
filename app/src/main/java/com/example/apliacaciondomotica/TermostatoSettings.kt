@@ -62,14 +62,14 @@ class TermostatoSettings: AppCompatActivity() {
 
         // Listener del botón "Borrar dispositivo"
         buttonBorrar.setOnClickListener {
-            Toast.makeText(this, "Dispositivo borrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.dispositivo_borrado), Toast.LENGTH_SHORT).show()
             // Aquí podrías añadir lógica para borrar el dispositivo de la base de datos
         }
 
         // Listener del botón "Actualizar Firmware"
         buttonActualizar.setOnClickListener {
             progressBarActualizar.visibility = View.VISIBLE
-            Toast.makeText(this, "Firmware actualizado correctamente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.actualizando_firmware_de_las_luces), Toast.LENGTH_SHORT).show()
 
             // Simular una actualización con un retraso
             buttonActualizar.postDelayed({

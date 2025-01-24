@@ -32,7 +32,7 @@ class LucesSettings : AppCompatActivity() {
         val buttonBorrar: Button
         buttonBorrar = findViewById(R.id.buttonBorrar)
         buttonBorrar.setOnClickListener{
-            Toast.makeText(this, "Dispositivo Borrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.dispositivo_borrado), Toast.LENGTH_SHORT).show()
         }
 
         // Recuperar el estado guardado del switch
@@ -51,7 +51,8 @@ class LucesSettings : AppCompatActivity() {
         // Configurar el botón de "Actualizar Firmware"
         buttonActualizar.setOnClickListener {
             // Mostrar el Toast y el ProgressBar
-            Toast.makeText(this, "Actualizando Firmware de las luces...", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,
+                getString(R.string.actualizando_firmware_de_las_luces), Toast.LENGTH_SHORT).show()
             progressBarActualizar.visibility = ProgressBar.VISIBLE
 
             // Generar un retardo aleatorio entre 2 y 5 segundos (2000 ms y 5000 ms)
