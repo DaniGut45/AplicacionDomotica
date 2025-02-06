@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="340dp"
+    android:layout_width="330dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp">
@@ -8,7 +8,7 @@
     <!-- Contenedor de cada rutina -->
     <LinearLayout
         android:id="@+id/rutina_container"
-        android:layout_width="320dp"
+        android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:background="#1E1E1E"

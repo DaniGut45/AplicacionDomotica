@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 
         rutinasButton.setOnClickListener{
-            val intent = Intent(this, RutinasActivity::class.java)
+            val intent = Intent(this, CrearRutinaActivity::class.java)
             startActivity(intent)
         }
 
